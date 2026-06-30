@@ -1,43 +1,47 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
+
 import connectDB from './config/mongodb.js'
 import connectCloudinary from './config/cloudinary.js'
+import validateEnv from './config/validateEnv.js'
+
 import adminRouter from './routes/adminRoute.js'
 import doctorRouter from './routes/doctorRoute.js'
 import userRouter from './routes/userRoute.js'
 
-// app config
+import errorMiddleware from './middlewares/errorMiddleware.js'
+
 const app = express()
 const port = process.env.PORT || 4000
 
-// Connect to database (CALL THE FUNCTION)
-connectDB()
-connectCloudinary()
-
-// middlewares
 app.use(express.json())
 app.use(cors())
+
+app.get('/', (req, res) => {
+  res.status(200).json({ success: true, message: 'API Working' })
+})
 
 // api endpoints
 app.use('/api/admin', adminRouter)
 app.use('/api/doctor', doctorRouter)
-app.use("/api/user", userRouter)
+app.use('/api/user', userRouter)
 
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ success: false, message: 'Route not found' })
+})
 
-app.get("/", (req, res) => {
-  res.send("API Working")
-});
+// error handler (must be last)
+app.use(errorMiddleware)
 
-app.get('/test-db', (req, res) => {
-  const state = mongoose.connection.readyState;
-  // 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting
-  if (state === 1) {
-    res.send('Database is connected');
-  } else {
-    res.status(500).send('Database is NOT connected');
-  }
-});
+async function start() {
+  validateEnv()
+  await connectDB()
+  await connectCloudinary()
+  app.listen(port)
+}
 
-
-app.listen(port, () => console.log(`Server started on PORT:${port}`))
+start().catch((err) => {
+  process.exit(1)
+})

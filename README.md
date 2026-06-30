@@ -1,168 +1,134 @@
-# Appointy - Doctor Appointment Web App
+# MedFlow 🏥🚀
 
-**Appinty** is a full-stack web application designed to make healthcare more accessible by simplifying the process of booking doctor appointments. It offers three levels of login: **Patient**, **Doctor**, and **Admin**, each with distinct features tailored to their roles. The app integrates **online payment gateways (Stripe and Razorpay)** to facilitate seamless and secure payments. Built using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js), Appointy provides an efficient, user-friendly experience for both patients and healthcare providers.
+**MedFlow** is an AI-powered full-stack healthcare platform designed to streamline the entire medical journey — from symptom analysis to doctor consultation, appointment booking, and emergency support.
+
+Unlike traditional systems, MedFlow focuses on solving **real-world healthcare problems** such as:
+- Difficulty in choosing the right doctor  
+- Long waiting times  
+- Lack of communication between patient and doctor  
+- Emergency response delays  
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React.js
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Payment Gateways**: Razorpay
-- **Authentication**: JSON Web Token (JWT)
+- **Frontend**: React.js  
+- **Backend**: Node.js, Express.js  
+- **Database**: MongoDB  
+- **Authentication**: JSON Web Token (JWT)  
+- **Payment Gateway**: Razorpay  
+- **Real-time**: Socket.io  
+- **APIs**: Google Maps API  
+- **AI/ML**: OpenAI API / Machine Learning Models (for symptom analysis & doctor recommendation)
 
-## 🔑 Key Features
+---
 
-### 1. Three-Level Authentication
+## 🚀 Core Features (Smart & Problem-Solving)
 
-- **Patient Login**: 
-  - Patients can sign up, log in, and book appointments with doctors.
-  - Manage appointments (view, cancel, or reschedule).
-  - Secure online payment options available (cash, Stripe, Razorpay).
-  - User profile with editable information (name, email, address, gender, birthday, profile picture).
+### 🧠 Symptom Checker + Doctor Recommendation
+- Users enter symptoms  
+- AI suggests:
+  - Suitable doctor specialization  
+  - Best matching doctors  
+- Helps users choose the right doctor easily  
 
-- **Doctor Login**:
-  - Doctors can log in and manage appointments.
-  - Dashboard displays earnings, number of patients, number of appointments, and latest bookings.
-  - Update profile details (description, fees, address, availability status).
-  - View appointment details (patient info, payment mode, appointment status).
+---
 
-- **Admin Login**:
-  - Admins can create and manage doctor profiles.
-  - Dashboard with analytics: total doctors, total appointments, total patients, and recent bookings.
-  - Add new doctors (image, specialty, degree, experience, address, fees, etc.).
-  - View and manage all appointments (cancel or mark as completed).
+### 📍 Nearby Doctor + Live Availability
+- Shows nearest doctors using map integration  
+- Displays:
+  - Distance  
+  - Real-time availability  
+- Helps users quickly find accessible healthcare  
 
-## 🏠 Home Page
+---
 
-- Features a user-friendly layout where users can:
-  - **Search for doctors** based on specialties.
-  - **View top doctors** and their profiles.
-  - Explore additional sections: About Us, Delivery Information, Privacy Policy, and Get in Touch.
-- **Footer** includes navigation links: Home, About Us, Delivery Info, Privacy Policy, Contact Us.
+### ⏱️ Real-Time Queue / Wait Time System
+- Displays:
+  - Current queue position  
+  - Estimated waiting time  
+- Reduces waiting uncertainty  
+- Built using **Socket.io**  
 
-## 🩺 All Doctors Page
+---
 
-- Lists all available doctors.
-- Users can **filter doctors by specialty**.
-- Clicking on a doctor's profile redirects to the **Doctor Appointment Page**.
+### 💬 Doctor–Patient Chat + File Upload
+- Real-time chat system  
+- Upload reports (PDF/Image)  
+- Enables remote consultation  
 
-## 📄 About Page
+---
 
-- Provides information about **Appointy’s vision** and mission.
-- **Why Choose Us** section highlights:
-  - **Efficiency**: Streamlined appointment process.
-  - **Convenience**: Online booking and payment.
-  - **Personalization**: Tailored experience based on user preferences.
-- Footer section with additional links.
+### 💊 Medicine Reminder System
+- Automated reminders for medicines  
+- Helps users follow prescriptions  
+- Improves treatment consistency  
 
-## 📞 Contact Page
+---
 
-- Contains **office address** and contact details.
-- Section to explore job opportunities.
-- Footer navigation links.
+### 🚑 Emergency / Ambulance Button
+- One-click emergency alert  
+- Suggests nearest hospitals  
+- Faster response during critical situations  
 
-## 📅 Doctor Appointment Page
+---
 
-- Displays detailed information about the selected doctor:
-  - **Profile picture, qualification, experience**, and a brief description.
-  - **Appointment booking form**: Choose date, time, and payment method.
-  - Online payment options: **Cash, Stripe, or Razorpay**.
-  - **Related doctors** section at the bottom.
-- Users need to **create an account or log in** before booking an appointment.
+## 🔑 Existing Features
 
-## 👤 User Profile
+### 👥 Multi-Level Authentication
 
-- Accessible after login.
-- Users can view and edit their profile:
-  - **Upload profile picture**.
-  - Update **name, email, address, gender, and birthday**.
-- View list of upcoming and past appointments.
-- **Logout** option available.
+#### Patient
+- Book, cancel, reschedule appointments  
+- Secure online payments  
+- Profile & appointment history  
 
-## 🗄️ Admin Panel
+#### Doctor
+- Manage appointments  
+- Earnings dashboard  
+- Availability control  
 
-- **Dashboard**:
-  - Displays statistics: **Number of doctors**, **appointments**, **patients**, and **latest bookings**.
-  - Option to **cancel bookings** if needed.
-- **Add Doctor**:
-  - Form to add a new doctor profile (image, specialty, email, password, degree, address, experience, fees, description).
-- **Doctor List**:
-  - View all registered doctors with options to edit or delete profiles.
-- **Appointments**:
-  - List of all appointments including patient name, age, date, time, doctor name, fees.
-  - Admin actions: **Cancel** or **Mark as Completed**.
+#### Admin
+- Manage doctors  
+- Monitor appointments  
+- View analytics  
 
-## 🩺 Doctor Dashboard
-
-- **Earnings Overview**:
-  - Total earnings from completed appointments.
-- **Appointments List**:
-  - View detailed list of patient appointments (name, age, date, time, payment mode, status).
-  - Actions: **Mark appointment as completed** or **Cancel appointment**.
-- **Profile Management**:
-  - Doctors can update their **profile information**, including description, fees, address, and availability status.
+---
 
 ## 💳 Payment Integration
 
-- Supports multiple payment methods:
-  - **Cash Payment**
-  - **Razorpay Integration**
-- Ensures a secure and smooth payment experience for users.
+- Razorpay integration  
+- Secure and seamless transactions  
 
 ## 🌐 Project Setup
 
-To set up and run this project locally:
+### Clone Repository
+```bash
+git clone https://github.com/your-username/medflow.git
+cd medflow
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/appointy.git
-   cd appointy
-   ```
+## Install Dependencies
+cd frontend
+npm install
 
-2. **Install Dependencies**:
-   ```bash
-   npm install
-   cd client
-   npm install
-   ```
+cd ../backend
+npm install
+## Environment Variables
 
-3. **Environment Variables**:
-   - Create a `.env` file in the root directory and add the following:
-     ```env
-     MONGO_URI=your_mongodb_connection_string
-     JWT_SECRET=your_jwt_secret
-     STRIPE_API_KEY=your_stripe_api_key
-     RAZORPAY_API_KEY=your_razorpay_api_key
-     ```
+Create a .env file in the backend folder:
 
-4. **Run the Application**:
-   ```bash
-   npm run dev
-   ```
-
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+RAZORPAY_API_KEY=your_razorpay_api_key
+Run Project
+npm run dev
 ## 📦 Folder Structure
-
-```plaintext
-appointy/
-├── client/          # Frontend (React.js)
-├── server/          # Backend (Node.js, Express.js)
-├── models/          # MongoDB Schemas
-├── controllers/     # API Controllers
-├── routes/          # API Routes
-├── middleware/      # Authentication and Error Handling
-├── config/          # Configuration Files
-├── utils/           # Utility Functions
-├── public/          # Static Files
-└── .env             # Environment Variables
+medflow/
+├── frontend/      # React Frontend
+├── backend/       # Node.js Backend
+├── admin/         # Admin Panel
+├── utils/         # Utility Functions
 ```
 
-## 🤝 Contributing
+## 🎯 Project Vision
 
-We welcome contributions! Please feel free to submit issues, fork the repository, and open pull requests.
-
-
-## 🌟 Acknowledgements
-
-- Thanks to the developers and contributors of MongoDB, Express.js, React.js, Node.js, Stripe, and Razorpay for their fantastic tools and libraries.
-
----
+MedFlow aims to build a smart healthcare ecosystem by combining AI, real-time systems, and user-friendly design to solve real-world healthcare challenges.

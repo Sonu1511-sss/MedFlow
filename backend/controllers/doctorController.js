@@ -21,7 +21,6 @@ const loginDoctor = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     res.json({ success: true, token });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
@@ -33,7 +32,6 @@ const appointmentsDoctor = async (req, res) => {
     const appointments = await appointmentModel.find({ docId });
     res.json({ success: true, appointments });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
@@ -52,7 +50,6 @@ const appointmentCancel = async (req, res) => {
     await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true });
     res.json({ success: true, message: "Appointment Cancelled" });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
@@ -71,7 +68,6 @@ const appointmentComplete = async (req, res) => {
     await appointmentModel.findByIdAndUpdate(appointmentId, { isCompleted: true });
     res.json({ success: true, message: "Appointment Completed" });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
@@ -82,7 +78,6 @@ const doctorList = async (req, res) => {
     const doctors = await doctorModel.find({}).select("-password -email");
     res.json({ success: true, doctors });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
@@ -107,7 +102,6 @@ const doctorList = async (req, res) => {
 
     res.json({ success: true, message: "Availability changed successfully" });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
@@ -120,7 +114,6 @@ const doctorProfile = async (req, res) => {
     const profile = await doctorModel.findById(docId).select("-password");
     res.json({ success: true, profileData: profile });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };
@@ -140,7 +133,6 @@ const updateDoctorProfile = async (req, res) => {
 
     res.json({ success: true, message: "Profile Updated" });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ success: false, message: error.message });
   }
 };

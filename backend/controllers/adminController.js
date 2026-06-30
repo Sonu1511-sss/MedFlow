@@ -20,8 +20,7 @@ const loginAdmin = async (req, res) => {
         }
 
     } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: error.message })
+        res.status(500).json({ success: false, message: error.message })
     }
 
 }
@@ -70,7 +69,6 @@ const addDoctor = async (req, res) => {
     res.status(200).json({ success: true, message: "Doctor Added" });
 
   } catch (error) {
-    console.error("Error adding doctor:", error);
     res.status(500).json({ success: false, message: error.message || "Internal Server Error" });
   }
 };
@@ -99,8 +97,7 @@ const appointmentCancel = async (req, res) => {
         res.json({ success: true, message: 'Appointment Cancelled' })
 
     } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: error.message })
+        res.status(500).json({ success: false, message: error.message })
     }
 }
 
@@ -111,8 +108,7 @@ const allDoctors = async (req, res) => {
         res.json({ success: true, doctors })
 
     } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: error.message })
+        res.status(500).json({ success: false, message: error.message })
     }
 }
 
@@ -124,8 +120,7 @@ const appointmentsAdmin = async (req, res) => {
         res.json({ success: true, appointments })
 
     } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: error.message })
+        res.status(500).json({ success: false, message: error.message })
     }
 
 }
@@ -148,8 +143,7 @@ const adminDashboard = async (req, res) => {
         res.json({ success: true, dashData })
 
     } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: error.message })
+        res.status(500).json({ success: false, message: error.message })
     }
 }
 

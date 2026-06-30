@@ -20,8 +20,9 @@ const authDoctor = async (req, res, next) => {
         req.user = { id: decoded.id };
         next();
     } catch (error) {
-        console.error('Auth Error:', error.message);
-        res.status(401).json({ success: false, message: 'Invalid or expired token' });
+        const err = new Error('Invalid or expired token')
+        err.statusCode = 401
+        next(err)
     }
 };
 
