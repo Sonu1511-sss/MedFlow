@@ -1,48 +1,163 @@
-import React from 'react';
-import { assets } from '../assets/assets';
+import React from "react";
+import { assets } from "../assets/assets";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="px-6 md:px-10">
-      <div className="grid md:grid-cols-[3fr_1fr_1fr] gap-12 my-10 mt-24 text-sm items-start">
-        {/* Left Section */}
-        <div className="flex items-start gap-4">
-  <img className="w-28 mt-1" src={assets.logo} alt="Appointy Logo" />
-  <p className="text-gray-600 leading-6 md:max-w-[75%]">
-    <strong>Appointy – Effortless Healthcare Scheduling
+    <footer className="bg-slate-50 border-t border-gray-200 mt-24">
+      <div className="max-w-7xl mx-auto px-6 py-16">
 
-</strong> <br />Patients can instantly book appointments with trusted doctors—from routine check-ups to specialist care—in just a few clicks. Our smart reminders keep appointments on track, while real-time updates ensure seamless coordination. Designed for modern healthcare, we save time for both patients and providers.
-  </p>
-</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
+          {/* Logo */}
+          <div>
+            <img src={assets.logo} alt="MedFlow" className="w-36 mb-5" />
 
-        {/* Middle Section */}
-        <div>
-          <p className="text-lg font-semibold mb-4">COMPANY</p>
-          <ul className="flex flex-col gap-2 text-gray-600">
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
-            <li>Privacy Policy</li>
-          </ul>
+            <p className="text-gray-600 leading-7 text-sm">
+              MedFlow is a modern healthcare platform that helps patients
+              connect with trusted doctors, book appointments, manage medical
+              records, and receive AI-powered healthcare assistance.
+            </p>
+
+            <div className="flex items-center gap-3 mt-6">
+
+              <div className="w-10 h-10 rounded-full bg-white border flex items-center justify-center hover:bg-blue-600 hover:text-white transition cursor-pointer">
+                <FaFacebookF />
+              </div>
+
+              <div className="w-10 h-10 rounded-full bg-white border flex items-center justify-center hover:bg-pink-500 hover:text-white transition cursor-pointer">
+                <FaInstagram />
+              </div>
+
+              <div className="w-10 h-10 rounded-full bg-white border flex items-center justify-center hover:bg-sky-500 hover:text-white transition cursor-pointer">
+                <FaTwitter />
+              </div>
+
+              <div className="w-10 h-10 rounded-full bg-white border flex items-center justify-center hover:bg-blue-700 hover:text-white transition cursor-pointer">
+                <FaLinkedinIn />
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Company */}
+
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-5">
+              Company
+            </h3>
+
+            <ul className="space-y-3 text-gray-600">
+
+              <li className="hover:text-blue-600 cursor-pointer">
+                Home
+              </li>
+
+              <li className="hover:text-blue-600 cursor-pointer">
+                About Us
+              </li>
+
+              <li className="hover:text-blue-600 cursor-pointer">
+                Find Doctors
+              </li>
+
+              <li className="hover:text-blue-600 cursor-pointer">
+                Contact
+              </li>
+
+            </ul>
+
+          </div>
+
+          {/* Services */}
+
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-5">
+              Services
+            </h3>
+
+            <ul className="space-y-3 text-gray-600">
+
+              <li>Doctor Appointment</li>
+
+              <li>AI Health Assistant</li>
+
+              <li>Online Consultation</li>
+
+              <li>Medical Records</li>
+
+            </ul>
+
+          </div>
+
+          {/* Contact */}
+
+          <div>
+
+            <h3 className="text-lg font-semibold text-gray-900 mb-5">
+              Contact Us
+            </h3>
+
+            <div className="space-y-4 text-gray-600">
+
+              <div className="flex gap-3">
+                <FaPhoneAlt className="text-blue-600 mt-1" />
+                <span>+91 90000 90000</span>
+              </div>
+
+              <div className="flex gap-3">
+                <FaEnvelope className="text-blue-600 mt-1" />
+                <span>support@medflow.com</span>
+              </div>
+
+              <div className="flex gap-3">
+                <FaMapMarkerAlt className="text-blue-600 mt-1" />
+                <span>Bhopal, Madhya Pradesh, India</span>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-        {/* Right Section */}
-        <div>
-          <p className="text-lg font-semibold mb-4">GET IN TOUCH</p>
-          <ul className="flex flex-col gap-2 text-gray-600">
-            <li>+91-90000-90000</li>
-            <li>customersupport@appointy.in</li>
-          </ul>
+        <hr className="my-10 border-gray-200" />
+
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+
+          <p>
+            © 2026 MedFlow. All Rights Reserved.
+          </p>
+
+          <div className="flex gap-6">
+
+            <a href="#" className="hover:text-blue-600">
+              Privacy Policy
+            </a>
+
+            <a href="#" className="hover:text-blue-600">
+              Terms & Conditions
+            </a>
+
+            <a href="#" className="hover:text-blue-600">
+              Cookies
+            </a>
+
+          </div>
+
         </div>
+
       </div>
-
-      {/* Bottom Footer */}
-      <hr className="border-gray-300" />
-      <p className="py-4 text-sm text-center text-gray-600">
-        © 2025 appointy.in — All Rights Reserved.
-      </p>
-    </div>
+    </footer>
   );
 };
 
