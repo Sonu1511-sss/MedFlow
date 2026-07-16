@@ -39,42 +39,55 @@ const Login = () => {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
 
-    try {
-      if (state === "Sign Up") {
-        const { data } = await axios.post(
-          backendUrl + "/user/register",
-          {
-            name,
-            email,
-            password,
-          }
-        );
+   try {
+  if (!backendUrl) {
+    toast.error("Backend URL is not configured.");
+    return;
+  }
 
-        if (data.success) {
-          localStorage.setItem("token", data.token);
-          setToken(data.token);
-        } else {
-          toast.error(data.message);
-        }
-      } else {
-        const { data } = await axios.post(
-          backendUrl + "/user/login",
-          {
-            email,
-            password,
-          }
-        );
-
-        if (data.success) {
-          localStorage.setItem("token", data.token);
-          setToken(data.token);
-        } else {
-          toast.error(data.message);
-        }
+  if (state === "Sign Up") {
+    const { data } = await axios.post(
+      `${backendUrl}/api/user/register`,
+      {
+        name,
+        email,
+        password,
       }
-    } catch (error) {
-      toast.error(error.message);
+    );
+
+    if (data.success) {
+      localStorage.setItem("token", data.token);
+      setToken(data.token);
+      toast.success("Account created successfully");
+    } else {
+      toast.error(data.message);
     }
+  } else {
+    const { data } = await axios.post(
+      `${backendUrl}/api/user/login`,
+      {
+        email,
+        password,
+      }
+    );
+
+    if (data.success) {
+      localStorage.setItem("token", data.token);
+      setToken(data.token);
+      toast.success("Login successful");
+    } else {
+      toast.error(data.message);
+    }
+  }
+} catch (error) {
+  console.error(error);
+
+  toast.error(
+    error.response?.data?.message ||
+    error.message ||
+    "Something went wrong"
+  );
+}
   };
 
   // ================= REDIRECT =================
